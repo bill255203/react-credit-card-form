@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --Light: hsl(270, 3%, 87%);
+  --Dark: hsl(279, 6%, 55%);
+  --Very: hsl(278, 68%, 11%);
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  height: 100vh;
+  background: url("./images/bg-main-desktop.png");
+  background-repeat: no-repeat;
+  background-size: 30% 100%;
+}
+
+.split {
+  display: flex;
+}
+
+.split > * + * {
+  margin-right: 5px;
+}
+
+.main {
+  justify-content: center;
+  align-items: center;
+  margin-block: 20vh;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  margin-inline: min(10%, 150px);
+  width: min(50%, 400px);
+}
+.cards .img-txt {
+  position: relative;
+  font-size: 1vw;
+}
+.cards .img-txt .up {
+  width: 80%;
+  margin-block: 1em;
+}
+.cards .img-txt .name {
+  top: 30%;
+  left: 15%;
+  font-size: 1.5vw;
+}
+.cards .img-txt .num {
+  bottom: 1.5em;
+  left: 1em;
+}
+.cards .img-txt .exp {
+  bottom: 1.5em;
+  right: 25%;
+}
+.cards .img-txt p {
+  color: white;
+  position: absolute;
+}
+.cards .down {
+  width: 80%;
+  margin: 10px 0px auto auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-right: min(10%, 150px);
+  width: min(50%, 400px);
+}
+.form input[type=text],
+.form input[type=number] {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 2px solid green; /* Gray border */
+  border-radius: 10px; /* Rounded borders */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+}
+.form input[type=submit],
+.form input#continue {
+  background-color: black;
+  color: white;
+  padding: 12px 20px;
+  width: 100%;
+  margin: auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-content: center;
+}
+.form input[type=submit]:hover {
+  background-color: var(--Very);
+}
+.form input:required:invalid {
+  border: 2px solid rgb(228, 0, 0);
+}
+
+.sec2 input#continue {
+  background-color: black;
+  color: white;
+  padding: 12px 20px;
+  width: 100%;
+  margin: auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.attribution {
+  position: relative;
+  font-size: 1vw;
+  width: 100%;
+  height: 30px;
+  text-align: right;
+  padding-right: 10%;
+}
+
+/* media queries for the small screens  */
+@media (max-width: 720px) {
+  body {
+    width: 100vh;
+    background: url("./images/bg-main-mobile.png");
+    background-repeat: no-repeat;
+    background-size: 100% 30%;
+  }
+  .main {
+    margin-block: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  .cards {
+    margin: 0;
+    position: relative;
+  }
+  .cards .img-txt {
+    position: absolute;
+    margin-top: 80px;
+  }
+  .cards .down {
+    position: absolute;
+    top: 10px;
+    z-index: -1;
+  }
+  .form {
+    margin-top: 300px;
+  }
+}
