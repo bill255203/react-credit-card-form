@@ -13,8 +13,7 @@ function App() {
     cvc: '',
   });
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleInfo(event) {
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
@@ -32,7 +31,7 @@ function App() {
           <Routes>
             <Route
               path='/'
-              element={<Form formData={formData} handleSubmit={handleSubmit} />}
+              element={<Form formData={formData} handleInfo={handleInfo} />}
             />
             <Route path='/tks' element={<Thanks formData={formData} />} />
           </Routes>

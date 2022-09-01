@@ -13,7 +13,7 @@ const Thanks = ({ formData }) => {
       <h2>Name: {formData.namee}</h2>
       <h2>Num: {formData.num}</h2>
       <h2>
-        Time: {formData.month} {formData.year}
+        Exp Date: {formData.month} / {formData.year}
       </h2>
       <h2>CVC: {formData.cvc}</h2>
       <input

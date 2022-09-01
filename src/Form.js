@@ -1,7 +1,27 @@
 import { useNavigate } from 'react-router-dom';
 
-const Form = ({ formData, handleSubmit }) => {
+const Form = ({ formData, handleInfo }) => {
   const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!isNaN(formData.namee)) return false;
+    if (formData.num.toString().length !== 12) return false;
+    if (
+      formData.month.toString().length !== 2 ||
+      formData.month <= 1 ||
+      formData.month >= 12
+    )
+      return false;
+    if (formData.year.toString().length !== 2 || formData.year <= 22)
+      return false;
+    if (formData.cvc.toString().length !== 3) return false;
+    //navigate to another page
+    navigate('/tks');
+    return true;
+  };
+
   return (
     <form className='section sec1 form' id='form1' onSubmit={handleSubmit}>
       <label htmlFor='name'>CARDHOLDER NAME</label>
@@ -10,7 +30,7 @@ const Form = ({ formData, handleSubmit }) => {
         type='text'
         id='name'
         name='namee'
-        onChange={handleSubmit}
+        onChange={handleInfo}
         placeholder=' e.g.Jane Appleseed'
         value={formData.namee}
       />
@@ -21,7 +41,7 @@ const Form = ({ formData, handleSubmit }) => {
         type='number'
         id='num'
         name='num'
-        onChange={handleSubmit}
+        onChange={handleInfo}
         placeholder='e.g. 1234 5678 9123 0000'
         value={formData.num}
       />
@@ -34,7 +54,7 @@ const Form = ({ formData, handleSubmit }) => {
               type='number'
               id='month'
               name='month'
-              onChange={handleSubmit}
+              onChange={handleInfo}
               placeholder='MM'
               value={formData.month}
             />
@@ -44,7 +64,7 @@ const Form = ({ formData, handleSubmit }) => {
               type='number'
               id='year'
               name='year'
-              onChange={handleSubmit}
+              onChange={handleInfo}
               placeholder='YY'
               value={formData.year}
             />
@@ -57,18 +77,13 @@ const Form = ({ formData, handleSubmit }) => {
             type='text'
             id='cvc'
             name='cvc'
-            onChange={handleSubmit}
+            onChange={handleInfo}
             placeholder='e.g. 123'
             value={formData.cvc}
           />
         </div>
       </div>
-      <input
-        type='submit'
-        id='submit'
-        value='Confirm'
-        onClick={() => navigate('/tks')}
-      />
+      <input type='submit' id='submit' value='Confirm' />
     </form>
   );
 };
