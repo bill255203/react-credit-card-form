@@ -72,8 +72,7 @@ body {
     padding: 12px; /* Some padding */
     border: 2px solid green; /* Gray border */
     border-radius: 10px; /* Rounded borders */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
+    margin-block: 10px;
   }
 
   input[type='submit'],
@@ -91,9 +90,14 @@ body {
   input[type='submit']:hover {
     background-color: var(--Very);
   }
-  input:required:invalid {
-    border: 2px solid rgb(228, 0, 0);
+  p {
+    margin-top: 0px;
+    color: red;
+    font-weight: 800;
   }
+  /*input:required:invalid {
+    border: 2px solid rgb(228, 0, 0);
+  }*/
 }
 .sec2 {
   input#continue {

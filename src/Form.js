@@ -1,12 +1,18 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Form = ({ formData, handleInfo }) => {
   const navigate = useNavigate();
-
+  const [error, setError] = useState('');
+  const [red, setRed] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!isNaN(formData.namee)) return false;
+    if (!isNaN(formData.namee)) {
+      setError('HAS to be a real name');
+      setRed('red');
+      return false;
+    }
     if (formData.num.toString().length !== 12) return false;
     if (
       formData.month.toString().length !== 2 ||
@@ -33,8 +39,9 @@ const Form = ({ formData, handleInfo }) => {
         onChange={handleInfo}
         placeholder=' e.g.Jane Appleseed'
         value={formData.namee}
+        style={{ border: `2px solid ${red}` }}
       />
-
+      {error && <p>{error}</p>}
       <label htmlFor='num'>CARD NUMBER</label>
       <input
         required

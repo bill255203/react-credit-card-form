@@ -72,6 +72,9 @@ body {
   flex-direction: column;
   margin-right: min(10%, 150px);
   width: min(50%, 400px);
+  /*input:required:invalid {
+    border: 2px solid rgb(228, 0, 0);
+  }*/
 }
 .form input[type=text],
 .form input[type=number] {
@@ -79,8 +82,7 @@ body {
   padding: 12px; /* Some padding */
   border: 2px solid green; /* Gray border */
   border-radius: 10px; /* Rounded borders */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
+  margin-block: 10px;
 }
 .form input[type=submit],
 .form input#continue {
@@ -97,8 +99,10 @@ body {
 .form input[type=submit]:hover {
   background-color: var(--Very);
 }
-.form input:required:invalid {
-  border: 2px solid rgb(228, 0, 0);
+.form p {
+  margin-top: 0px;
+  color: red;
+  font-weight: 800;
 }
 
 .sec2 input#continue {
